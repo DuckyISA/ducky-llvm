@@ -1,0 +1,13 @@
+; RUN: llvm-mc -triple ducky -show-encoding < %s 2> %t | FileCheck %s
+; RUN: not test -s %t
+
+test:
+  mul r0, r1
+  mul r1, sp
+  mul fp, 0x79
+  mul r0, 0x7fff
+
+; CHECK: mul r0, r1 ; encoding: [0x1e,0x08,0x00,0x00]
+; CHECK: mul r1, sp ; encoding: [0x5e,0xf8,0x00,0x00]
+; CHECK: mul fp, 0x79 ; encoding: [0x9e,0x07,0xf3,0x00]
+; CHECK: mul r0, 0x7fff ; encoding: [0x1e,0x00,0xff,0xff]

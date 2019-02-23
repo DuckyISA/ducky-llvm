@@ -1,0 +1,13 @@
+; RUN: llvm-mc -triple ducky -show-encoding < %s 2> %t | FileCheck %s
+; RUN: not test -s %t
+
+test:
+  xor r0, r1
+  xor r1, sp
+  xor fp, 0x79
+  xor r0, 0x7fff
+
+; CHECK: xor r0, r1 ; encoding: [0x24,0x08,0x00,0x00]
+; CHECK: xor r1, sp ; encoding: [0x64,0xf8,0x00,0x00]
+; CHECK: xor fp, 0x79 ; encoding: [0xa4,0x07,0xf3,0x00]
+; CHECK: xor r0, 0x7fff ; encoding: [0x24,0x00,0xff,0xff]

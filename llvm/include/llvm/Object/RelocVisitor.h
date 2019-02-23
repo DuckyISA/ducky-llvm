@@ -110,6 +110,8 @@ private:
       return visitSparc32(Rel, R, Value);
     case Triple::hexagon:
       return visitHexagon(Rel, R, Value);
+    case Triple::ducky:
+      return visitDucky(Rel, R, Value);
     default:
       HasError = true;
       return 0;
@@ -283,6 +285,13 @@ private:
 
   uint64_t visitHexagon(uint32_t Rel, RelocationRef R, uint64_t Value) {
     if (Rel == ELF::R_HEX_32)
+      return Value + getELFAddend(R);
+    HasError = true;
+    return 0;
+  }
+
+  uint64_t visitDucky(uint32_t Rel, RelocationRef R, uint64_t Value) {
+    if (Rel == ELF::R_DUCKY_Sys_Data_4)
       return Value + getELFAddend(R);
     HasError = true;
     return 0;

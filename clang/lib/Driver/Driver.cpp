@@ -19,6 +19,7 @@
 #include "ToolChains/CrossWindows.h"
 #include "ToolChains/Cuda.h"
 #include "ToolChains/Darwin.h"
+#include "ToolChains/Ducky.h"
 #include "ToolChains/DragonFly.h"
 #include "ToolChains/FreeBSD.h"
 #include "ToolChains/Fuchsia.h"
@@ -4394,10 +4395,15 @@ const ToolChain &Driver::getToolChain(const ArgList &Args,
       case llvm::Triple::xcore:
         TC = llvm::make_unique<toolchains::XCoreToolChain>(*this, Target, Args);
         break;
+      case llvm::Triple::ducky:
+        TC = llvm::make_unique<toolchains::DuckyToolChain>(*this, Target, Args);
+        break;
+      /*
       case llvm::Triple::wasm32:
       case llvm::Triple::wasm64:
         TC = llvm::make_unique<toolchains::WebAssembly>(*this, Target, Args);
         break;
+      */
       case llvm::Triple::avr:
         TC = llvm::make_unique<toolchains::AVRToolChain>(*this, Target, Args);
         break;

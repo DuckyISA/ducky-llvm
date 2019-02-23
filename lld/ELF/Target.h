@@ -147,6 +147,7 @@ TargetInfo *getAArch64TargetInfo();
 TargetInfo *getAMDGPUTargetInfo();
 TargetInfo *getARMTargetInfo();
 TargetInfo *getAVRTargetInfo();
+TargetInfo *getDuckyTargetInfo();
 TargetInfo *getHexagonTargetInfo();
 TargetInfo *getPPC64TargetInfo();
 TargetInfo *getPPCTargetInfo();

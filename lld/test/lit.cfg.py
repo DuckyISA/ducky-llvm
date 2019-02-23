@@ -65,6 +65,7 @@ llvm_config.feature_config(
                           'AMDGPU': 'amdgpu',
                           'ARM': 'arm',
                           'AVR': 'avr',
+                          'Ducky': 'ducky',
                           'Hexagon': 'hexagon',
                           'Mips': 'mips',
                           'PowerPC': 'ppc',

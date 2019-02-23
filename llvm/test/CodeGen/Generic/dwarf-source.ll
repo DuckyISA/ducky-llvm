@@ -3,6 +3,7 @@
 
 ; Darwin clamps the line table at DWARF v2 so XFAIL this test.
 ; XFAIL: darwin
+; XFAIL: ducky
 
 ; REQUIRES: object-emission
 ; RUN: %llc_dwarf -dwarf-version 4 -filetype=asm -o - %s | FileCheck %s --check-prefix=ASM-4

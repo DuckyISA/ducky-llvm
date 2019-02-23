@@ -9011,6 +9011,22 @@ public:
 } // namespace
 
 //===----------------------------------------------------------------------===//
+// Ducky ABI Implementation
+//===----------------------------------------------------------------------===//
+namespace {
+class DuckyABIInfo : public DefaultABIInfo {
+  public:
+    DuckyABIInfo(CodeGen::CodeGenTypes &CGT) : DefaultABIInfo(CGT) {}
+};
+
+class DuckyTargetCodeGenInfo : public TargetCodeGenInfo {
+  public:
+    DuckyTargetCodeGenInfo(CodeGenTypes &CGT)
+      : TargetCodeGenInfo(new DuckyABIInfo(CGT)) {}
+};
+} // End anonymous namespace.
+
+//===----------------------------------------------------------------------===//
 // Driver code
 //===----------------------------------------------------------------------===//
 
@@ -9188,6 +9204,9 @@ const TargetCodeGenInfo &CodeGenModule::getTargetCodeGenInfo() {
   case llvm::Triple::spir:
   case llvm::Triple::spir64:
     return SetCGInfo(new SPIRTargetCodeGenInfo(Types));
+
+  case llvm::Triple::ducky:
+    return SetCGInfo(new DuckyTargetCodeGenInfo(Types));
   }
 }
 
