@@ -1,6 +1,7 @@
 ; RUN: llc -no-integrated-as < %s
 
 ; XFAIL: avr
+; XFAIL: ducky
 
 define fastcc void @bc__support__high_resolution_time__initialize_clock_rate() personality i32 (...)* @__gxx_personality_v0 {
 entry:

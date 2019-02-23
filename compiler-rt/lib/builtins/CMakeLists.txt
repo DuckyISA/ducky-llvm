@@ -489,6 +489,9 @@ set(armv6m_SOURCES ${thumb1_SOURCES})
 set(armv7m_SOURCES ${arm_SOURCES})
 set(armv7em_SOURCES ${arm_SOURCES})
 
+# Ducky arch
+set(ducky_SOURCES ${GENERIC_SOURCES} ${GENERIC_TF_SOURCES})
+
 # hexagon arch
 set(hexagon_SOURCES ${GENERIC_SOURCES} ${GENERIC_TF_SOURCES})
 set(hexagon_SOURCES

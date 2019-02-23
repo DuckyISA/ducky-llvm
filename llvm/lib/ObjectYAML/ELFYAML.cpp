@@ -216,6 +216,7 @@ void ScalarEnumerationTraits<ELFYAML::ELF_EM>::enumeration(
   ECase(EM_RISCV);
   ECase(EM_LANAI);
   ECase(EM_BPF);
+  ECase(EM_DUCKY);
 #undef ECase
 }
 
@@ -642,6 +643,9 @@ void ScalarEnumerationTraits<ELFYAML::ELF_REL>::enumeration(
     break;
   case ELF::EM_MIPS:
 #include "llvm/BinaryFormat/ELFRelocs/Mips.def"
+    break;
+  case ELF::EM_DUCKY:
+#include "llvm/BinaryFormat/ELFRelocs/Ducky.def"
     break;
   case ELF::EM_HEXAGON:
 #include "llvm/BinaryFormat/ELFRelocs/Hexagon.def"

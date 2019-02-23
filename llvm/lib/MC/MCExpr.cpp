@@ -319,6 +319,8 @@ StringRef MCSymbolRefExpr::getVariantKindName(VariantKind Kind) {
   case VK_AMDGPU_REL64: return "rel64";
   case VK_AMDGPU_ABS32_LO: return "abs32@lo";
   case VK_AMDGPU_ABS32_HI: return "abs32@hi";
+  case VK_Ducky_LO: return "DUCKY_LO";
+  case VK_Ducky_HI: return "DUCKY_HI";
   }
   llvm_unreachable("Invalid variant kind");
 }
@@ -436,6 +438,8 @@ MCSymbolRefExpr::getVariantKindForName(StringRef Name) {
     .Case("rel64", VK_AMDGPU_REL64)
     .Case("abs32@lo", VK_AMDGPU_ABS32_LO)
     .Case("abs32@hi", VK_AMDGPU_ABS32_HI)
+    .Case("DUCKY_LO", VK_Ducky_LO)
+    .Case("DUCKY_HI", VK_Ducky_HI)
     .Default(VK_Invalid);
 }
 

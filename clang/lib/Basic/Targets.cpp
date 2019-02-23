@@ -19,6 +19,7 @@
 #include "Targets/ARM.h"
 #include "Targets/AVR.h"
 #include "Targets/BPF.h"
+#include "Targets/Ducky.h"
 #include "Targets/Hexagon.h"
 #include "Targets/Lanai.h"
 #include "Targets/Le64.h"
@@ -112,6 +113,9 @@ TargetInfo *AllocateTarget(const llvm::Triple &Triple,
 
   case llvm::Triple::arc:
     return new ARCTargetInfo(Triple, Opts);
+
+  case llvm::Triple::ducky:
+    return new DuckyTargetInfo(Triple, Opts);
 
   case llvm::Triple::xcore:
     return new XCoreTargetInfo(Triple, Opts);
@@ -555,6 +559,7 @@ TargetInfo *AllocateTarget(const llvm::Triple &Triple,
       return nullptr;
     return new SPIR64TargetInfo(Triple, Opts);
   }
+  /*
   case llvm::Triple::wasm32:
     if (Triple.getSubArch() != llvm::Triple::NoSubArch ||
         Triple.getVendor() != llvm::Triple::UnknownVendor ||
@@ -585,6 +590,8 @@ TargetInfo *AllocateTarget(const llvm::Triple &Triple,
       default:
         return nullptr;
     }
+    return new WebAssemblyOSTargetInfo<WebAssembly64TargetInfo>(Triple, Opts);
+  */
 
   case llvm::Triple::renderscript32:
     return new LinuxTargetInfo<RenderScript32TargetInfo>(Triple, Opts);

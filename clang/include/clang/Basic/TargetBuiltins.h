@@ -199,6 +199,16 @@ namespace clang {
     };
   }
 
+  /// \brief Ducky builtins
+  namespace Ducky {
+    enum {
+      LastTIBuiltin = clang::Builtin::FirstTSBuiltin-1,
+#define BUILTIN(ID, TYPE, ATTRS) BI##ID,
+#include "clang/Basic/BuiltinsDucky.def"
+      LastTSBuiltin
+    };
+  }
+
 } // end namespace clang.
 
 #endif

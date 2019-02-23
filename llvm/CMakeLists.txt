@@ -291,6 +291,7 @@ set(LLVM_ALL_TARGETS
   WebAssembly
   X86
   XCore
+  Ducky
   )
 
 # List of targets with JIT support:

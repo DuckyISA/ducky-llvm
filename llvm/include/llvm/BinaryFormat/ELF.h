@@ -311,6 +311,7 @@ enum {
   EM_RISCV = 243,         // RISC-V
   EM_LANAI = 244,         // Lanai 32-bit processor
   EM_BPF = 247,           // Linux kernel bpf virtual machine
+  EM_DUCKY = 254          // Temporary for Ducky target
 };
 
 // Object file classes.
@@ -568,6 +569,11 @@ enum {
   ODK_GP_GROUP = 9,   // GP group to use for text/data sections
   ODK_IDENT = 10,     // ID information
   ODK_PAGESIZE = 11   // Page size information
+};
+
+// ELF Relocation types for Ducky
+enum {
+#include "ELFRelocs/Ducky.def"
 };
 
 // Hexagon-specific e_flags

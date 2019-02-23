@@ -1,4 +1,7 @@
 ; RUN: llc -no-integrated-as < %s
+
+; XFAIL: ducky
+
 ; PR1133
 define void @test(i32* %X) nounwind  {
 entry:

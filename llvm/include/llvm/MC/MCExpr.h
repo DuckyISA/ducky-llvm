@@ -304,6 +304,9 @@ public:
     VK_AMDGPU_ABS32_LO,      // symbol@abs32@lo
     VK_AMDGPU_ABS32_HI,      // symbol@abs32@hi
 
+    VK_Ducky_LO,
+    VK_Ducky_HI,
+
     VK_TPREL,
     VK_DTPREL
   };

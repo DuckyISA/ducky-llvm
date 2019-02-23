@@ -14,6 +14,8 @@ def get_required_attr(config, attr_name):
       "to lit.site.cfg.py " % attr_name)
   return attr_value
 
+target_arch = config.target_arch
+
 # Setup config name.
 config.name = 'Builtins' + config.name_suffix
 
@@ -27,6 +29,10 @@ config.test_source_root = os.path.dirname(__file__)
 is_msvc = get_required_attr(config, "is_msvc")
 if is_msvc:
   base_lib = os.path.join(config.compiler_rt_libdir, "clang_rt.builtins%s.lib "
+                          % config.target_suffix)
+  config.substitutions.append( ("%librt ", base_lib) )
+elif target_arch == "ducky":
+  base_lib = os.path.join(config.compiler_rt_libdir, "libclang_rt.builtins%s.a "
                           % config.target_suffix)
   config.substitutions.append( ("%librt ", base_lib) )
 else:

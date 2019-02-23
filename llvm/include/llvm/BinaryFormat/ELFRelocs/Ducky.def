@@ -1,0 +1,9 @@
+#ifndef ELF_RELOC
+#error "ELF_RELOC must be defined"
+#endif
+
+ELF_RELOC(R_DUCKY_NONE,              0)
+ELF_RELOC(R_DUCKY_Sys_Data_4,        1)
+ELF_RELOC(R_DUCKY_PI_20,             2)
+ELF_RELOC(R_DUCKY_PA_20,             3)
+ELF_RELOC(R_DUCKY_PA_16,             4)

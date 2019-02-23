@@ -1,0 +1,9 @@
+add_llvm_library(LLVMDuckyDesc
+  DuckyAsmBackend.cpp
+  DuckyMCCodeEmitter.cpp
+  DuckyELFStreamer.cpp
+  DuckyTargetStreamer.cpp
+  DuckyELFObjectWriter.cpp
+  DuckyMCAsmInfo.cpp
+  DuckyMCTargetDesc.cpp
+  )

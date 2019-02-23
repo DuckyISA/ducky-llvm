@@ -1,5 +1,7 @@
 ; RUN: llc %s -o -
 
+; XFAIL: ducky
+
 ;; Reference to a label that gets deleted.
 define i8* @test1() nounwind {
 entry:
